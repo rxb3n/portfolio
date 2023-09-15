@@ -1,10 +1,12 @@
 <template>
   <div class="nav-container">
+    <a href="/"><h1 style="font-size: 1.5em; font-family: var(--font-secondary); color: var(--secondary-color);">Ruben KONAN</h1></a>
     <div class="nav-elements">
       <a href="#about"><p class="nav">About</p></a>
-      <p class="nav">Services</p>
-      <p class="nav">Projects</p>
-      <p class="nav nav-button">Contact</p>
+      <a href="#services"><p class="nav">Services</p></a>
+      <a href="#projects"><p class="nav">Projects</p></a>
+      <a href="#contact"><p class="nav nav-button">Contact</p></a>
+
     </div>
   </div>
 
@@ -26,12 +28,14 @@
   top: 0;
   background-color: white;
   z-index: 999;
+  scroll-behavior: smooth !important;
 }
+
 
 .nav-elements {
   display: flex;
   justify-content: space-around;
-width: 100%;
+  width: 100%;
   align-items: center;
 }
 
@@ -42,6 +46,11 @@ width: 100%;
 .nav:hover {
   color: var(--secondary-color);
   text-decoration: underline;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-container">
+    <div class="contact-container" id="contact">
         <div class="contact">
             <h2>Let's Talk!</h2>
             <p>Ready to elevate your brand with a stunning<br> web presence? 

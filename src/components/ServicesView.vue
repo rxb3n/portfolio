@@ -1,5 +1,5 @@
 <template>
-    <div class="service-container">
+    <div class="service-container" id="services">
 
         <div class="card">
             <img src="../assets/service1.gif">

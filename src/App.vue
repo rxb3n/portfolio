@@ -45,9 +45,18 @@ export default {
   --font-secondary: 'Elsie', cursive;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body, h1, h2, h3, h4, h5, h6, p{
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth !important;
+}
+
+a {
+  text-decoration: none;
 }
 
 </style>
