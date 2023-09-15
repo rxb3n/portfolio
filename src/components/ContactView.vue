@@ -18,7 +18,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: var(--main-color);
     text-align: center;
     height: 25dvh;
     justify-content: center;

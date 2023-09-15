@@ -47,6 +47,7 @@
 .project-wrapper {
     width: 95%;
     margin: auto;
+    margin-bottom: 5%;
 }
 
 .project {
@@ -55,6 +56,9 @@
     text-align: center;
     margin-bottom: 3%;
     align-items: center;
+    rotate: -5deg;
+    transition: .2s;
+    border-radius: 40px;
 }
 
 .project-inv {
@@ -64,6 +68,21 @@
     text-align: center;
     margin-bottom: 3%;
     align-items: center;
+    rotate: -5deg;
+    transition: .2s;
+    border-radius: 40px;
+}
+
+.project:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+
+
+
+.project-inv:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
 }
 
 img {
@@ -79,6 +98,7 @@ img:hover {
 }
 
 h2 {
+    rotate: -5deg;
     font-family: var(--font-secondary);
     color: var(--secondary-color);
     font-size: 3em;
@@ -89,7 +109,7 @@ p {
     font-family: var(--main-font);
     display: flex;
     font-size: 1.3em;
-    margin: 2%;
+    transition: .2s;
 }
 
 </style>

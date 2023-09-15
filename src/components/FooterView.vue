@@ -2,7 +2,7 @@
     <div class="footer-container">
         <div class="social phone">
             <img src="../assets/phone.webp" alt="">
-            <p>+ 33 7 65 72 16 01</p>
+            <p>+33 7 65 72 16 01</p>
 
         
             <img src="../assets/mail.png" alt="">

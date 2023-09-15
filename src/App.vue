@@ -39,7 +39,7 @@ export default {
 
 
 :root {
-  --main-color: white;
+  --main-color: rgb(250,255,227);
   --secondary-color: #9584E0;
   --main-font: 'Martian Mono', monospace;
   --font-secondary: 'Elsie', cursive;
@@ -52,7 +52,7 @@ html {
 body, h1, h2, h3, h4, h5, h6, p{
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth !important;
+  overflow-x:hidden ;
 }
 
 a {

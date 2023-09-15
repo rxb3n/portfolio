@@ -43,7 +43,7 @@
     background-attachment: fixed;
     font-family: var(--main-font);
     text-align: center;
-    color: white;
+    color: var(--main-color);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -96,7 +96,7 @@ svg {
 
 .text-copy {
     fill: none;
-    stroke: white;
+    stroke: var(--main-color);
     stroke-dasharray: 6% 29%;
     stroke-width: 5px;
     stroke-dashoffset: 0%;
@@ -104,7 +104,7 @@ svg {
 }
 
 .text-copy:nth-child(1){
-  stroke: #fff;
+  stroke: var(--main-color);
   animation-delay: -1;
 }
 
@@ -114,7 +114,7 @@ svg {
 }
 
 .text-copy:nth-child(3){
-  stroke: #fff;
+  stroke: var(--main-color);
   animation-delay: -3s;
 }
 
@@ -124,7 +124,7 @@ svg {
 }
 
 .text-copy:nth-child(5){
-  stroke: #fff;
+  stroke: var(--main-color);
   animation-delay: -5s;
 }
 

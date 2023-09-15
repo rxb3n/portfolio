@@ -57,6 +57,7 @@ img {
     width: 18vw;
     filter: grayscale(100%);
     transition: .25s;
+    border-radius: 18px;
 }
 
 .serv {
