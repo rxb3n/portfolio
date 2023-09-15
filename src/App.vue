@@ -1,26 +1,53 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NavView/>
+  <HeroView/>
+  <AboutView/>
+  <ServicesView/>
+  <StackView/>
+  <ProjectView/>
+  <ContactView/>
+  <FooterView/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavView from './components/NavView.vue'
+import HeroView from './components/HeroView.vue'
+import AboutView from './components/AboutView.vue'
+import ServicesView from './components/ServicesView.vue'
+import StackView from './components/StackView.vue'
+import ProjectView from './components/ProjectView.vue'
+import ContactView from './components/ContactView.vue'
+import FooterView from './components/FooterView.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    NavView,
+    HeroView,
+    AboutView,
+    ServicesView,
+    StackView,
+    ProjectView,
+    ContactView,
+    FooterView,
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Martian+Mono:wght@400;500;700&display=swap');
+
+
+:root {
+  --main-color: white;
+  --secondary-color: #9584E0;
+  --main-font: 'Martian Mono', monospace;
+  --font-secondary: 'Elsie', cursive;
 }
+
+body, h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+  padding: 0;
+}
+
 </style>
