@@ -34,7 +34,7 @@
     width: 95%;
     margin: auto;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     font-family: var(--main-font);
     margin-bottom: 7%;
 }
