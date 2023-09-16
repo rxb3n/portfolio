@@ -97,9 +97,12 @@ h2 {
 
 @media screen and (max-width: 900px) {
     .about-text {
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
+        font-size: 0.8rem;
+    }
+
+    .text {
+        max-width: 80%;
     }
 
     .about-container {

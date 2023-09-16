@@ -10,11 +10,12 @@
 			:grabCursor = "true"
 			:loop="true"
 			:freeMode = "true"
+            :freeModeMomentum = "true"
 			:speed ="10000"
-			:freeModeMomentum = "true"
+
 			:autoplay= "{
 				delay: 1,
-				disableOnInteraction: false
+				disableOnInteraction: false,
 			}"
 			:breakpoints="{
 				'950': {
@@ -22,7 +23,7 @@
 					spaceBetween: 0,
 				},
 				'0': {
-					slidesPerView: 1,
+					slidesPerView: 2,
 					spaceBetween: 5,
 				},
 			}"
@@ -37,13 +38,6 @@
             </div>
         </swiper-slide>
 
-        <swiper-slide>
-            <div class="slide">
-                <img src="../assets/css-logo.png">
-                <p class="skill">CSS</p>
-                <p class="level">Expert</p>
-            </div>
-        </swiper-slide>
 
         <swiper-slide>
             <div class="slide">
@@ -53,13 +47,6 @@
             </div>
         </swiper-slide>
 
-        <swiper-slide>
-            <div class="slide">
-                <img src="../assets/react-logo.png">
-                <p class="skill">React</p>
-                <p class="level">Advanced</p>
-            </div>
-        </swiper-slide>
 
         <swiper-slide>
             <div class="slide">
@@ -69,21 +56,7 @@
             </div>
         </swiper-slide>
 
-        <swiper-slide>
-            <div class="slide">
-                <img src="../assets/uxui-logo.png">
-                <p class="skill">UX/UI</p>
-                <p class="level">Advanced</p>
-            </div>
-        </swiper-slide>
 
-        <swiper-slide>
-            <div class="slide">
-                <img src="../assets/nodejs-logo.png">
-                <p class="skill">NodeJs</p>
-                <p class="level">Intermediate</p>
-            </div>
-        </swiper-slide>
 
         <swiper-slide>
             <div class="slide">
@@ -97,6 +70,74 @@
             <div class="slide">
                 <img src="../assets/mongodb-logo.png">
                 <p class="skill">MongoDB</p>
+                <p class="level">Intermediate</p>
+            </div>
+        </swiper-slide>
+
+
+
+    </swiper>
+    </div>
+
+    <div class="swiper-wrapper" :class="{ 'dark-mode': isDarkMode }">
+		<swiper
+			:modules="modules"
+			:space-between="0"
+			:grabCursor = "true"
+			:loop="true"
+			:freeMode = "true"
+            :freeModeMomentum = "true"
+			:speed ="10000"
+
+			:autoplay= "{
+				delay: 1,
+				disableOnInteraction: false,
+                reverseDirection: true
+			}"
+			:breakpoints="{
+				'950': {
+					slidesPerView: 3,
+					spaceBetween: 0,
+				},
+				'0': {
+					slidesPerView: 2,
+					spaceBetween: 5,
+				},
+			}"
+			@swiper="onSwiper"
+			@slideChange="onSlideChange"
+		>
+
+        <swiper-slide>
+            <div class="slide">
+                <img src="../assets/css-logo.png">
+                <p class="skill">CSS</p>
+                <p class="level">Expert</p>
+            </div>
+        </swiper-slide>
+
+
+        <swiper-slide>
+            <div class="slide">
+                <img src="../assets/react-logo.png">
+                <p class="skill">React</p>
+                <p class="level">Advanced</p>
+            </div>
+        </swiper-slide>
+
+
+        <swiper-slide>
+            <div class="slide">
+                <img src="../assets/uxui-logo.png">
+                <p class="skill">UX/UI</p>
+                <p class="level">Advanced</p>
+            </div>
+        </swiper-slide>
+
+        <swiper-slide>
+            <div class="slide">
+                <img src="../assets/nodejs-logo.png">
+                <p class="skill">NodeJs</p>
                 <p class="level">Intermediate</p>
             </div>
         </swiper-slide>

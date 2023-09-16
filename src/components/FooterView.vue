@@ -71,7 +71,7 @@ h2 {
     .social {
       display: flex  !important;
       flex-direction: column;
-      font-size: 1rem;
+      font-size: .8rem;
       text-align: center !important;
     }
 

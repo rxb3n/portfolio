@@ -87,4 +87,10 @@ button:hover {
     background-color: var(--secondary-color-dark) !important;
 }
 
+@media screen and (max-width: 900px) {
+  .contact-container {
+    font-size: 0.8rem;
+  }
+}
+
 </style>

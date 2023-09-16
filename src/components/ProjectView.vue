@@ -157,4 +157,14 @@ p {
     color: var(--main-color);
 }
 
+@media screen and (max-width: 900px) {
+    .project img, .project-inv img {
+        height: 35dvh;
+    }
+
+    .project-wrapper {
+        font-size: 0.8rem;
+    }
+}
+
 </style>

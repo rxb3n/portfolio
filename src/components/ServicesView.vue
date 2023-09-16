@@ -140,7 +140,7 @@ img {
     }
 
     img {
-        width: 35vw;
+        width: 50vw;
     }
 }
 
