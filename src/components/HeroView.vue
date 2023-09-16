@@ -200,6 +200,10 @@ svg {
     height: 45dvh;
     margin-top: -8%;
   }
+
+  svg{
+    width: 100vw;
+  }
 }
 
 </style>
