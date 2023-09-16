@@ -1,15 +1,16 @@
 <template>
   <div class="nav-container" :class="{ 'dark-mode': isDarkMode }">
-    <a href="/"><h1 style="font-size: 1.5em; font-family: var(--font-secondary);color: var(--secondary-color);;">Ruben KONAN</h1></a>
-    <div class="nav-elements">
-        <a href="#about"><p class="nav">About</p></a>
-        <a href="#services"><p class="nav">Services</p></a>
-        <a href="#projects"><p class="nav">Projects</p></a>
-        <a href="#contact"><p class="nav nav-button">Contact</p></a>
+    <a href="/"><h1 style="font-size: 1.5em; font-family: var(--font-secondary);color: var(--secondary-color);">Ruben KONAN</h1></a>
+    <img class="menu mobile" src="../assets/hamburger-menu.png" alt="" @click="toggleMenu">
+    <div class="nav-elements" :class="{ 'open': isMenuOpen }">
+      <a href="#about"><p class="nav">About</p></a>
+      <a href="#services"><p class="nav">Services</p></a>
+      <a href="#projects"><p class="nav">Projects</p></a>
+      <a href="#contact"><p class="nav nav-button">Contact</p></a>
 
-        <button class="toggle-mode" @click="toggleDarkMode">
-      <img :src="isDarkMode ? require('../assets/light-mode.png') : require('../assets/night-mode.png')" alt="">
-    </button>
+        <button class="toggle-mode mobile" @click="toggleDarkMode">
+          <img :src="isDarkMode ? require('../assets/light-mode.png') : require('../assets/night-mode.png')" alt="">
+        </button>
 
     </div>
   </div>
@@ -19,12 +20,14 @@
 <script>
 import { useDarkModeStore } from '@/store/index.js';
 import { watch, ref } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
 export default {
   setup() {
     const darkModeStore = useDarkModeStore();
-
     const isDarkMode = ref(darkModeStore.getIsDarkMode);
+    const isMenuOpen = ref(false);
+    
 
     // Observer les changements dans le mode sombre
     watch(() => darkModeStore.getIsDarkMode, (newValue) => {
@@ -39,9 +42,30 @@ export default {
       darkModeStore.toggleDarkMode();
     };
 
+
+    const toggleMenu = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
+
+    const resetMenu = () => {
+      if (window.innerWidth > 900) {
+        isMenuOpen.value = false;
+      }
+    };
+
+    onMounted(() => {
+      window.addEventListener('resize', resetMenu);
+    });
+
+    onUnmounted(() => {
+      window.removeEventListener('resize', resetMenu);
+    });
+
     return {
       isDarkMode,
-      toggleDarkMode
+      toggleDarkMode,
+      isMenuOpen,
+      toggleMenu
     };
   }
 };
@@ -62,6 +86,10 @@ export default {
   z-index: 999;
   scroll-behavior: smooth !important;
   transition: .5s;
+}
+
+.menu {
+  display: none;
 }
 
 .nav-container img {
@@ -116,7 +144,7 @@ a{
 .toggle-mode {
   background-color: transparent;
   border: none;
-  padding: 3px;
+  padding: 15%;
   height: 6dvh;
   width: 4vw;
   transition: .1s;
@@ -151,6 +179,45 @@ a{
 .dark-mode button {
   transition: .2s;
   filter: invert();
+}
+
+
+.dark-mode .menu {
+  transition: .2s;
+  filter: invert();
+}
+
+
+@media screen and (max-width: 900px) {
+  .nav-container {
+    display: flex;
+    height: fit-content;
+  }
+
+
+  .nav-elements button {
+    padding: 15px;
+    height: 7dvh;
+    width: 6vw;
+  }
+
+  .mobile {
+    display: block;
+  }
+  .nav-elements {
+  display: none;
+  color: black;
+  height: 0;
+}
+
+.nav-elements.open {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+
+}
+
 }
 
 </style>

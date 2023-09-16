@@ -1,8 +1,8 @@
 <template>
     <div class="service-container" id="services" :class="{ 'dark-mode': isDarkMode }">
-
-
-        <div class="card">
+        <h2>Services</h2>
+        <div class="card-wrapper">
+            <div class="card">
             <img src="../assets/service2.gif">
             <p class="serv">Design Flair</p>
             <p class="serv-desc">I turn concepts into visually stunning layouts, 
@@ -25,6 +25,7 @@
                 find innovative solutions to complex problems. 
                 I stay up-to-date with trends, 
                 ensuring your brand remains relevant and engaging.</p>
+        </div>
         </div>
 
     </div>
@@ -65,10 +66,20 @@ export default {
 .service-container{
     width: 95%;
     margin: auto;
-    display: flex;
-    justify-content: space-between;
     font-family: var(--main-font);
     margin-bottom: 7%;
+}
+
+.card-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-family: var(--font-secondary);
+    font-size: 3em;
+    color: var(--secondary-color);
+    margin-top: 3%; margin-bottom: 8%;
 }
 
 .card {
@@ -100,6 +111,37 @@ img {
 
 .dark-mode .serv{
     color: var(--secondary-color-dark) !important;
+}
+
+.dark-mode  h2{
+    color: var(--secondary-color-dark) !important;
+}
+
+@media screen and (max-width: 900px) {
+    .card-wrapper {
+        height: fit-content;
+        display: block;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .card {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 15%;
+    }
+
+    .card:hover {
+        transform: none;
+    }
+
+    img {
+        width: 35vw;
+    }
 }
 
 </style>

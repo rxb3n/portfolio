@@ -177,4 +177,29 @@ svg {
     color: white !important;
 }
 
+@media screen and (max-width: 900px) {
+  .hero-wrapper {
+    display: block
+  }
+  .hero-image img{
+    height: 25dvh;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-wrapper{
+    height: fit-content;
+  }
+
+  .hero-btn {
+    height: 45dvh;
+    margin-top: -8%;
+  }
+}
+
 </style>

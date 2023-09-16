@@ -241,4 +241,22 @@
     color: var(--secondary-color-dark);
 }
 
+@media screen and (max-width: 900px) {
+    img {
+        object-fit: contain;
+    }
+
+    .stack-container {
+        margin-bottom: 10%;
+    }
+
+    .swiper-wrapper {
+        margin-bottom: 10%;
+    }
+    
+    .slide {
+        height: 20dvh;
+    }
+}
+
 </style>

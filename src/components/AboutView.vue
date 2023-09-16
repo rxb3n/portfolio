@@ -95,5 +95,19 @@ h2 {
     transition: .5s !important;
 }
 
+@media screen and (max-width: 900px) {
+    .about-text {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .about-container {
+        height: fit-content;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+}
+
     
 </style>

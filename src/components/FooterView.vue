@@ -66,4 +66,19 @@ h2 {
     text-align: center;
     margin-top: 1%;
 }
+
+@media screen and (max-width: 900px) {
+    .social {
+      display: flex  !important;
+      flex-direction: column;
+      font-size: 1rem;
+      text-align: center !important;
+    }
+
+    .social img {
+      display: flex !important;
+      object-fit: contain;
+    }
+
+  }
 </style>
