@@ -1,9 +1,9 @@
 <template>
-    <div class="stack-container">
+    <div class="stack-container" :class="{ 'dark-mode': isDarkMode }">
         <h2>My Skills</h2>
     </div>
 
-    <div class="swiper-wrapper">
+    <div class="swiper-wrapper" :class="{ 'dark-mode': isDarkMode }">
 		<swiper
 			:modules="modules"
 			:space-between="0"
@@ -114,6 +114,8 @@
 
   // Import Swiper styles
   import 'swiper/css';
+  import { useDarkModeStore } from '@/store/index.js';
+    import { watch, ref } from 'vue';
 
   export default {
     components: {
@@ -121,18 +123,41 @@
       SwiperSlide,
     },
     setup() {
-      const onSwiper = (swiper) => {
-        console.log(swiper);
-      };
-      const onSlideChange = () => {
-        console.log('slide change');
-      };
-      return {
-        onSwiper,
-        onSlideChange,
-        modules: [Autoplay],
-      };
-    },
+    const darkModeStore = useDarkModeStore();
+
+    const isDarkMode = ref(darkModeStore.getIsDarkMode);
+
+    // Observer les changements dans le mode sombre
+    watch(() => darkModeStore.getIsDarkMode, (newValue) => {
+      isDarkMode.value = newValue;
+
+      // Mettez à jour les styles en fonction du mode sombre
+      document.body.style.backgroundColor = isDarkMode.value ? 'black' : 'white';
+      document.body.style.color = isDarkMode.value ? 'white' : 'black';
+    });
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    const onSwiper = (swiper) => {
+      console.log(swiper);
+    };
+
+    const onSlideChange = () => {
+      console.log('slide change');
+    };
+
+    const modules = [Autoplay];
+
+    return {
+      onSwiper,
+      onSlideChange,
+      modules,
+      isDarkMode,
+      toggleDarkMode,
+    };
+  },
   };
 </script>
 
@@ -143,6 +168,7 @@
     margin-bottom: 5%;
 }
 
+
 .swiper-wrapper {
     margin-bottom: 5%;
 }
@@ -152,6 +178,7 @@
     font-size: 3em;
     margin-bottom: 3%;
     color: var(--secondary-color);
+    transition: .2s;
 }
 
 .slide {
@@ -199,6 +226,19 @@
 
 .level {
     font-family: var(--main-font);
+}
+
+.dark-mode .slide{
+    background-color: rgb(31, 31, 31) !important;
+}
+
+
+.dark-mode p{
+    color: var(--font-color-dark) !important;
+}
+
+.dark-mode h2 {
+    color: var(--secondary-color-dark);
 }
 
 </style>

@@ -1,5 +1,5 @@
-<template>
-    <div class="hero-wrapper">
+<template >
+    <div class="hero-wrapper" :class="{ 'dark-mode': isDarkMode }">
 
         <div class="hero-text">
             <svg viewBox="0 0 960 500">
@@ -33,27 +33,62 @@
 
 </template>
 
+<script>
+import { useDarkModeStore } from '@/store/index.js';
+import { watch, ref } from 'vue';
+
+export default {
+  setup() {
+    const darkModeStore = useDarkModeStore();
+
+    const isDarkMode = ref(darkModeStore.getIsDarkMode);
+
+    // Observer les changements dans le mode sombre
+    watch(() => darkModeStore.getIsDarkMode, (newValue) => {
+      isDarkMode.value = newValue;
+
+      // Mettez à jour les styles en fonction du mode sombre
+      document.body.style.backgroundColor = isDarkMode.value ? 'black' : 'white';
+      document.body.style.color = isDarkMode.value ? 'white' : 'black';
+    });
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    return {
+      isDarkMode,
+      toggleDarkMode
+    };
+  }
+};
+</script>
+
 <style scoped>
 .hero-wrapper{
-    background-image: url(../assets/hero-banner.jpg);
-    height: 80dvh;
-    width: 95%;
-    margin: auto;
-    background-size: contain;
-    background-attachment: fixed;
-    font-family: var(--main-font);
-    text-align: center;
-    color: var(--main-color);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 4%;
+  background-image: url(../assets/hero-banner-day.jpg);
+  height: 80dvh;
+  width: 95%;
+  margin: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: var(--main-font);
+  text-align: center;
+  color: var(--main-color);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 4%;
+  transition: .5s;
 }
 
 .hero-image img {
     height: 35dvh;
     width: auto;
     transition: .5s;
+    border-radius: 18px;
+    position: relative;
+    bottom: 10dvh;
 }
 
 .hero-image img:hover {
@@ -130,6 +165,16 @@ svg {
 
 @keyframes stroke-offset{
   100% {stroke-dashoffset: -35%;}
+}
+
+.dark-mode {
+  background-image: url(../assets/hero-banner.jpg);
+  transition: .5s !important;
+}
+
+.dark-mode button{
+    background-color: black !important;
+    color: white !important;
 }
 
 </style>

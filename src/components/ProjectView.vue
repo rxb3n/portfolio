@@ -1,8 +1,8 @@
 <template>
-    <div class="project-container" id="projects">
+    <div class="project-container" id="projects" :class="{ 'dark-mode': isDarkMode}">
         <h2>Some Projects</h2>
     </div>
-    <div class="project-wrapper">
+    <div class="project-wrapper" :class="{ 'dark-mode': isDarkMode}">
 
         <div class="project">
             <a href="https://sneakerpage.netlify.app/" target="_blank"><img src="../assets/sites/shoe.png"></a>
@@ -36,6 +36,37 @@
 
     </div>
 </template>
+
+<script>
+import { useDarkModeStore } from '@/store/index.js';
+import { watch, ref } from 'vue';
+
+export default {
+  setup() {
+    const darkModeStore = useDarkModeStore();
+
+    const isDarkMode = ref(darkModeStore.getIsDarkMode);
+
+    // Observer les changements dans le mode sombre
+    watch(() => darkModeStore.getIsDarkMode, (newValue) => {
+      isDarkMode.value = newValue;
+
+      // Mettez à jour les styles en fonction du mode sombre
+      document.body.style.backgroundColor = isDarkMode.value ? 'black' : 'white';
+      document.body.style.color = isDarkMode.value ? 'white' : 'black';
+    });
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    return {
+      isDarkMode,
+      toggleDarkMode
+    };
+  }
+};
+</script>
 
 
 <style scoped>
@@ -98,7 +129,6 @@ img:hover {
 }
 
 h2 {
-    rotate: -5deg;
     font-family: var(--font-secondary);
     color: var(--secondary-color);
     font-size: 3em;
@@ -110,6 +140,21 @@ p {
     display: flex;
     font-size: 1.3em;
     transition: .2s;
+}
+
+.dark-mode h2{
+    color: var(--secondary-color-dark);
+    transition: .2s;
+}
+
+.dark-mode .project:hover {
+    background-color: var(--secondary-color-dark);
+    color: var(--main-color);
+}
+
+.dark-mode .project-inv:hover {
+    background-color: var(--secondary-color-dark);
+    color: var(--main-color);
 }
 
 </style>

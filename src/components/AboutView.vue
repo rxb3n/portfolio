@@ -1,5 +1,5 @@
 <template>
-    <div class="about-container" id="about">
+    <div class="about-container" id="about" :class="{ 'dark-mode': isDarkMode }">
         <h2>About me</h2>
         <div class="about-text">
 
@@ -25,6 +25,38 @@
         </div>
     </div>
 </template>
+
+<script>
+import { useDarkModeStore } from '@/store/index.js';
+import { watch, ref } from 'vue';
+
+export default {
+  setup() {
+    const darkModeStore = useDarkModeStore();
+
+    const isDarkMode = ref(darkModeStore.getIsDarkMode);
+
+    // Observer les changements dans le mode sombre
+    watch(() => darkModeStore.getIsDarkMode, (newValue) => {
+      isDarkMode.value = newValue;
+
+      // Mettez à jour les styles en fonction du mode sombre
+      document.body.style.backgroundColor = isDarkMode.value ? 'black' : 'white';
+      document.body.style.color = isDarkMode.value ? 'white' : 'black';
+    });
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    return {
+      isDarkMode,
+      toggleDarkMode
+    };
+  }
+};
+</script>
+
 
 <style scoped>
 .about-container{
@@ -55,6 +87,13 @@ h2 {
     font-family: var(--font-secondary);
     font-size: 3em;
     margin-bottom: 2%;
-    color: var(--secondary-color);
+    color: var(--secondary-color);;
 }
+
+.dark-mode h2{
+    color: var(--secondary-color-dark) !important;
+    transition: .5s !important;
+}
+
+    
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-container" id="contact">
+    <div class="contact-container" id="contact" :class="{ 'dark-mode': isDarkMode}">
         <div class="contact">
             <h2>Let's Talk!</h2>
             <p>Ready to elevate your brand with a stunning<br> web presence? 
@@ -11,6 +11,37 @@
         </div>
     </div>
 </template>
+
+<script>
+import { useDarkModeStore } from '@/store/index.js';
+import { watch, ref } from 'vue';
+
+export default {
+  setup() {
+    const darkModeStore = useDarkModeStore();
+
+    const isDarkMode = ref(darkModeStore.getIsDarkMode);
+
+    // Observer les changements dans le mode sombre
+    watch(() => darkModeStore.getIsDarkMode, (newValue) => {
+      isDarkMode.value = newValue;
+
+      // Mettez à jour les styles en fonction du mode sombre
+      document.body.style.backgroundColor = isDarkMode.value ? 'black' : 'white';
+      document.body.style.color = isDarkMode.value ? 'white' : 'black';
+    });
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    return {
+      isDarkMode,
+      toggleDarkMode
+    };
+  }
+};
+</script>
 
 <style scoped>
 .contact-container {
@@ -28,6 +59,7 @@ h2 {
     font-size: 3em;
     font-family: var(--font-secondary);
     margin-bottom: 1%;
+    transition: .2s;
 }
 
 p {
@@ -49,6 +81,10 @@ button {
 button:hover {
     transform: scale(1.1);
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.dark-mode {
+    background-color: var(--secondary-color-dark) !important;
 }
 
 </style>

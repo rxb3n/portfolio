@@ -12,6 +12,28 @@
     </div>
 </template>
 
+<script>
+import { useDarkModeStore } from '@/store/index.js';
+import { storeToRefs } from 'pinia'
+
+
+export default {
+  setup() {
+
+    const darkModeStore  = storeToRefs(useDarkModeStore);
+
+    const toggleDarkMode = () => {
+      darkModeStore.toggleDarkMode();
+    };
+
+    return {
+      isDarkMode: darkModeStore.getIsDarkMode,
+      toggleDarkMode
+    };
+  }
+};
+</script>
+
 
 <style scoped>
 .footer-container{
