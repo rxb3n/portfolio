@@ -195,6 +195,7 @@ a{
   }
 
 
+
   .nav-elements button {
     padding: 15px;
     height: 7dvh;
@@ -215,6 +216,7 @@ a{
   flex-direction: column;
   align-items: center;
   height: fit-content;
+  width: 25%;
 
 }
 

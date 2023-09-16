@@ -80,12 +80,15 @@ export default {
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body, h1, h2, h3, h4, h6{
   margin: 0;
   padding: 0;
   overflow-x:hidden ;
+  max-width: 100%;
 }
 
 
