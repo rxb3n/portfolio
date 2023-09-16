@@ -80,7 +80,7 @@ export default {
   margin: auto;
   height: 8dvh;
   font-size: 1.15em;
-  position: sticky;
+  position: fixed;
   top: 0;
   background-color: white;
   z-index: 999;
