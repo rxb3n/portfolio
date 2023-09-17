@@ -4,7 +4,7 @@
   <AboutView/>
   <ServicesView/>
   <StackView/>
-<ProjectView/>
+  <ProjectView/>
   <ContactView/>
   <FooterView/>
 </template>

@@ -159,7 +159,11 @@ p {
 
 @media screen and (max-width: 900px) {
     .project img, .project-inv img {
-        height: 35dvh;
+        height: 30dvh;
+    }
+
+    .project, .project-inv {
+        margin-bottom: 15%;
     }
 
     .project-wrapper {

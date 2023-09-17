@@ -1,6 +1,6 @@
 <template>
   <div class="nav-container" :class="{ 'dark-mode': isDarkMode }">
-    <a href="/"><h1 style="font-size: 1.5em; font-family: var(--font-secondary);color: var(--secondary-color);">Ruben KONAN</h1></a>
+    <a href="#"><h1 style="font-size: 1.5em; font-family: var(--font-secondary);color: var(--secondary-color);">Ruben KONAN</h1></a>
     <img class="menu mobile" src="../assets/hamburger-menu.png" alt="" @click="toggleMenu">
     <div class="nav-elements" :class="{ 'open': isMenuOpen }">
       <a href="#about"><p class="nav">About</p></a>
@@ -192,6 +192,18 @@ a{
   .nav-container {
     display: flex;
     height: fit-content;
+    align-items: center;
+  }
+
+  .menu {
+    display: flex;
+    align-self: center;
+    position: relative;
+    left: 48%;
+  }
+
+  button {
+    width: 15vw !important;
   }
 
 

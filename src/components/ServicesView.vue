@@ -133,6 +133,7 @@ img {
         flex-direction: column;
         align-items: center;
         margin-bottom: 15%;
+        text-align: center;
     }
 
     .card:hover {
