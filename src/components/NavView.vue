@@ -1,6 +1,6 @@
 <template>
   <div class="nav-container" :class="{ 'dark-mode': isDarkMode }">
-    <a href="#"><h1 style="font-size: 1.5em; font-family: var(--font-secondary);color: var(--secondary-color);">Ruben KONAN</h1></a>
+    <a href="#"><h1 class="title-name">Ruben KONAN</h1></a>
     <img class="menu mobile" src="../assets/hamburger-menu.png" alt="" @click="toggleMenu">
     <div class="nav-elements" :class="{ 'open': isMenuOpen }">
       <a href="#about"><p class="nav">About</p></a>
@@ -8,7 +8,7 @@
       <a href="#projects"><p class="nav">Projects</p></a>
       <a href="#contact"><p class="nav nav-button">Contact</p></a>
 
-        <button class="toggle-mode mobile" @click="toggleDarkMode">
+        <button class="toggle-mode nav mobile" @click="toggleDarkMode">
           <img :src="isDarkMode ? require('../assets/light-mode.png') : require('../assets/night-mode.png')" alt="">
         </button>
 
@@ -86,6 +86,12 @@ export default {
   z-index: 999;
   scroll-behavior: smooth !important;
   transition: .5s;
+}
+
+.title-name {
+  font-size: 1.5em; 
+  font-family: var(--font-secondary);
+  color: var(--secondary-color);
 }
 
 .menu {
@@ -192,14 +198,18 @@ a{
   .nav-container {
     display: flex;
     height: fit-content;
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .title-name {
+    font-size: 1.1em;
   }
 
   .menu {
     display: flex;
     align-self: center;
-    position: relative;
-    left: 48%;
+    position: absolute;
+    left: 89%;
   }
 
   button {
@@ -214,23 +224,32 @@ a{
     width: 6vw;
   }
 
-  .mobile {
-    display: block;
-  }
   .nav-elements {
   display: none;
   color: black;
-  height: 0;
+  transition: .2s;
 }
 
 .nav-elements.open {
-  display: flex;
+  display: block;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: fit-content;
-  width: 25%;
-
+  transition: .2s;
 }
+
+.nav {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 10%;
+  margin-right: 20%;
+}
+
+.toggle-mode {
+  margin-bottom: 5%;
+  margin-left: 30%;
+}
+
 
 }
 

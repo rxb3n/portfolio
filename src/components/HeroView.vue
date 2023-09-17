@@ -185,6 +185,11 @@ svg {
     height: 25dvh;
   }
 
+  .hero-image {
+    display: block;
+    padding-top: 10%;
+  }
+
   .hero-text {
     display: flex;
     flex-direction: column;
