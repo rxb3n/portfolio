@@ -20,7 +20,7 @@
             <h2>Professional <br>Front-End Developer</h2>
 
             <div class="hero-btn">
-                <a href="cv.pdf" download><button>Download CV</button></a>
+                <a href="https://pdfhost.io/v/kCUgVJOOd_cv" download><button>Download CV</button></a>
             </div>
 
         </div>
